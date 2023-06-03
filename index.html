@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="App.js" defer></script>
+  </head>
+  <body>
+    <div class="hero">
+      <h1 id="heading">TASK MANAGEMENT APP</h1>
+      <div class="task-wrapper">
+        <input type="text" placeholder="Enter Your Task" class="taskInput" />
+        <button class="addBtn">Add Task</button>
+      </div>
 
+      <div class="box-warpper">
+        <div class="openSection">
+          <h3>Open</h3>
+          <ul id="openSection-ul" class="container">
+            
+          </ul>
+        </div>
+        <div class="progressSection">
+          <h3>Progress</h3>
+          <ul id="progressSection-ul" class="container"></ul>
+        </div>
+        <div class="reviewSection">
+          <h3>Review</h3>
+          <ul id="reviewSection-ul" class="container"></ul>
+        </div>
+        <div class="doneSection">
+          <h3>Done</h3>
+          <ul id="doneSection-ul" class="container"></ul>
+        </div>
+      </div>
+
+      <div class="modelBox"></div>
+    </div>
+  </body>
+</html>
