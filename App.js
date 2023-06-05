@@ -6,6 +6,7 @@ const openUL = document.querySelector("#openSection-ul");
 const modalBox = document.querySelector(".modelBox");
 const closeBtn = document.querySelector("#close");
 const SaveBtn = document.querySelector("#save");
+const review = document.querySelector("#reviewSection-ul");
 
 let tasks = [];
 
@@ -13,13 +14,16 @@ addBtn.addEventListener("click", function () {
   const inputVal = input.value;
 
   if (inputVal.trim() !== "") {
+    // let id = "id" + Math.floor(Math.random() * 100);
     tasks.push({
       key: tasks.length,
       task: inputVal,
       description: "",
+      // id: id,
     });
     input.value = "";
     renderTask();
+    console.log(tasks);
   }
 });
 
@@ -27,18 +31,43 @@ function renderTask() {
   openUL.innerHTML = "";
   tasks.map((tasks) => {
     const li = document.createElement("li");
-    li.className = "textBox";
-
-    li.innerText = tasks.task;
-    li.setAttribute("data-key", tasks.key);
-    li.setAttribute("draggable", true);
+    let id = "id" + Math.floor(Math.random() * 100);
+    li.innerHTML = `<li data-key="${tasks.key}" id="${id}"
+     draggable= 'true'  Class = "textBox"
+    ondragstart="drag(event)">${tasks.task}
+    </li>`;
 
     li.addEventListener("click", function () {
       openModel(tasks.key);
     });
-
     openUL.append(li);
   });
+}
+function drag(ev) {
+  ev.stopPropagation();
+  ev.dataTransfer.setData("text", ev.target.id);
+  // console.log(ev);
+  // console.log(ev.target);
+}
+
+function allowDrop(ev) {
+  ev.stopPropagation();
+  ev.preventDefault();
+
+  // console.log("allowDrop");
+}
+function drop(ev) {
+  ev.stopPropagation();
+
+  ev.preventDefault();
+
+  let data = ev.dataTransfer.getData("text");
+
+  ev.target.appendChild(document.getElementById(data));
+
+  console.log(tasks);
+
+  // console.log(ev.target.childNodes[0].id);
 }
 
 function openModel(key) {
@@ -78,3 +107,5 @@ function saveDes(key) {
 
   closeModal();
 }
+// console.log(tasks);
+// renderTask();
