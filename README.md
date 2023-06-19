@@ -7,8 +7,6 @@ This is a simple task management app that allows you to organize and track your 
 - Add new tasks using the input field and "Add" button.
 - Tasks are displayed in different sections based on their status: Open, In Progress, Review, Done.
 - Tasks can be moved between sections by dragging and dropping.
-- Edit the task description by clicking on the task.
-- Delete tasks by clicking on the delete button.
 - Mark tasks as completed by clicking on the "Done" button.
 - Responsive design for different screen sizes.
 
